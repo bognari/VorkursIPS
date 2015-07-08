@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="IPSVorkurs" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="IPSVorkurs" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="IPSVorkurs" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="IPSVorkurs" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.css">
+
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="valid.css">
+    <link rel="stylesheet" href="my.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-messages.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-animate.js"></script>
+
+    <script src="lib/ng-fab-form.js"></script>
+
+    <script src="app.js"></script>
+    <script src="home/home.js"></script>
+    <script src="anmeldung/anmeldung.js"></script>
+
+    <title ng-bind="'Informatik Vorkurs' + $root.title">Informatik Vorkurs</title>
+</head>
+<body>
+<!-- die Schmucklinien an den Seiten -->
+<img src="img/schatten_links.jpg" style="position:absolute; left:15px; top:0; z-index:5; ">
+<img src="img/schatten_rechts.jpg" style="position:absolute; left:1010px; top:0; z-index:5;">
+
+<!-- der Header mit Siegel, Symbolbild und Institutslogo -->
+<div id="tu_header">
+    <div id="tu_titelzeile">
+
+        <a href="http://www.tu-braunschweig.de" title="TU Start"><img src="img/siegel_rot.jpg" width="198" height="74"
+                                                                      style="position:absolute; top:35px; left:25px;  z-index : 5"
+                                                                      ; alt="TU BRAUNSCHWEIG"/></a>
+    </div>
+
+    <img src="img/ips.png" alt="Institutslogo" width="350" height="74"
+         style=" position:absolute; left:646px; top:6px;display:inline-block;"/>
+    <img src="img/iz.jpg" alt="Symbolfoto" width="907px" height="198"
+         style=" margin-left:37px; padding-top:85px;display:block;"/>
+</div>
+
+<!-- die Navigation an der linken Seite -->
+<div class='linke_spalte'>
+</div>
+
+
+<!-- die mittlere Spalte -->
+<div class='mittlere_spalte' ng-view>
+</div>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+</body>
+</html>

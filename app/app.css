@@ -1,0 +1,968 @@
+body {
+
+    color: black;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, serif;
+
+    /* Formatierung zur Kompabilitaet fuer den Internet Explorer zusammen mit em-Angaben */
+    /*font-size: 100.1%;*/
+    min-width: 55em;
+
+}
+
+/******************************************************
+	HEADER
+*******************************************************/
+
+/* Die Abstaende um das TU-Logo */
+div#tu_titelzeile {
+    margin: 0;
+    padding: 0;
+
+}
+
+/* Stellt den Hover-Effekt der Links für die Kopfnavigation ab */
+div#tu_titelzeile a:hover {
+    background-color: transparent;
+}
+
+/* Der umgebende Container fuer die Navigationsliste  */
+div#tu_navcontainer {
+
+    background-color: #be1e3c;
+    height: 22px;
+    width: 960px;
+    padding: 0;
+    position: absolute;
+    z-index: 5;
+    top: 233px;
+    left: 37px;
+
+}
+
+/* Liste mit Links*/
+ul#tu_navlist {
+
+    padding-left: 5px;
+    margin: 0;
+    display: block;
+    list-style-type: none;
+
+}
+
+/* Erzeugt eine horizontale Liste und Aufzaehlungszeichen */
+ul#tu_navlist li {
+
+    display: block;
+    margin: auto;
+    float: left;
+    font-size: 16px;
+}
+
+/*  Definiert die Navigationslinks als Block */
+ul#tu_navlist li a {
+
+    color: #fff;
+    margin: 0;
+    height: 22px;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.7em;
+
+}
+
+/* Die einzelnen Links */
+ul#tu_navlist a {
+
+    background-color: #be1e3c;
+    text-align: center;
+    width: 70px;
+    color: white;
+
+}
+
+/******************************************************
+	NAVIGATION LINKS
+*******************************************************/
+
+.linke_spalte {
+
+    width: 210px;
+    float: left;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    font-size: 0.75em;
+    margin-top: 35px;
+}
+
+/* Laesst die Box mit dem Schatten der Navigation verschwinden */
+.linke_spalte_schatten {
+    display: none;
+}
+
+div.linke_spalte A {
+
+    TEXT-DECORATION: none;
+
+}
+
+div.linke_spalte A:hover {
+    BACKGROUND-COLOR: white;
+}
+
+UL.navi {
+
+    MARGIN: 0;
+    padding: 0;
+    list-style: none inside;
+    POSITION: fixed;
+    FLOAT: left;
+
+}
+
+/*Werte für alle Navigationsebenen*/
+DIV.navi0, DIV.navi1, DIV.navi2, DIV.navi3, DIV.navi4, DIV.navi5 {
+
+    padding: 0.5em 0;
+    MARGIN: 0;
+    FONT-FAMILY: Arial, serif;
+    list-style: none inside;
+    display: block;
+    background-color: white;
+    border-top: 1px solid #999;
+}
+
+/*Werte die für die Navigationsebenen variieren*/
+
+DIV.navi0 {
+    background-color: #DCDCDC;
+}
+
+DIV.navi0 a:link, DIV.navi0 a:visited {
+    font-size: 1em;
+    display: block;
+    color: #333;
+}
+
+DIV.navi1 a:link, DIV.navi1 a:visited {
+    display: block;
+    color: #333;
+    font-size: 1em;
+}
+
+DIV.navi2 a:link, DIV.navi2 a:visited {
+    display: block;
+    color: #333;
+    font-size: 1em;
+}
+
+DIV.navi3 a:link, DIV.navi3 a:visited {
+    display: block;
+    color: #333;
+    font-size: 1em;
+}
+
+DIV.navi4 a:link, DIV.navi4 a:visited {
+    margin-left: 20px;
+    color: #333;
+    font-size: 1em;
+}
+
+DIV.navi5 a:link, DIV.navi5 a:visited {
+    color: #333;
+    font-size: 1em;
+}
+
+DIV.navi0 a:hover, DIV.navi1 a:hover, DIV.navi2 a:hover, DIV.navi3 a:hover, DIV.navi4 a:hover, DIV.navi5 a:hover,
+DIV.navi0 a:focus, DIV.navi1 a:focus, DIV.navi2 a:focus, DIV.navi3 a:focus, DIV.navi4 a:focus, DIV.navi5 a:focus {
+
+    color: #333;
+    background-color: #999;
+    display: block;
+
+}
+
+DIV.navi0:hover, DIV.navi1:hover, DIV.navi2:hover, DIV.navi3:hover, DIV.navi4:hover, DIV.navi5:hover {
+
+    color: #333;
+    background-color: #ccc;
+    display: block;
+
+}
+
+DIV.navi0:hover a, DIV.navi1:hover a, DIV.navi2:hover a, DIV.navi3:hover a, DIV.navi4:hover a, DIV.navi5:hover a {
+
+    color: #333;
+    background-color: #ccc;
+    display: block;
+
+}
+
+DIV.selected a:hover {
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: #999;
+}
+
+DIV.selected:hover {
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: #999;
+}
+
+DIV.navi0 a, DIV.navi1 a, DIV.navi2 a, DIV.navi3 a, DIV.navi4 a, .selected {
+
+    display: block;
+
+}
+
+DIV.navi0 a, div.navi0.selected {
+    PADDING-LEFT: 0.5em;
+}
+
+DIV.navi1 a, div.navi1.selected {
+    PADDING-LEFT: 1em;
+}
+
+DIV.navi2 a, div.navi2.selected {
+    PADDING-LEFT: 1.5em;
+}
+
+DIV.navi3 a, div.navi3.selected {
+    PADDING-LEFT: 2em;
+}
+
+DIV.navi4 a, div.navi4.selected {
+    PADDING-LEFT: 2.5em;
+}
+
+DIV.navi5 a, div.navi5.selected {
+    PADDING-LEFT: 3em;
+}
+
+DIV.selected a {
+    padding: 0;
+}
+
+DIV.sort_order {
+    border: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    float: left;
+    display: block;
+    height: 14px;
+    background-color: transparent;
+}
+
+DIV.navi0 div.sort_order {
+    left: -0.5em;
+}
+
+DIV.navi1 div.sort_order {
+    left: -1em;
+}
+
+DIV.navi2 div.sort_order {
+    left: -1.5em;
+}
+
+DIV.navi3 div.sort_order {
+    left: -2em;
+}
+
+DIV.navi4 div.sort_order {
+    left: -2.5em;
+}
+
+DIV.navi5 div.sort_order {
+    left: -3em;
+}
+
+DIV.selected {
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: #999;
+}
+
+DIV.separated {
+    BORDER-TOP: #ffffff 1px solid;
+}
+
+.naviklein {
+
+    FONT-SIZE: 0.7em;
+    COLOR: #000000;
+    LINE-HEIGHT: 1em;
+    FONT-FAMILY: Arial, serif
+
+}
+
+.navigross {
+
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1em;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, serif
+
+}
+
+.navibold {
+
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1em;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, serif
+
+}
+
+.naviweiss {
+
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1em;
+    COLOR: #ffffff;
+    LINE-HEIGHT: 1em;
+    FONT-FAMILY: Arial, serif;
+    BACKGROUND-COLOR: #488bbd
+
+}
+
+.navi-diese-seite {
+
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1em;
+    COLOR: #ffffff;
+    LINE-HEIGHT: 1em;
+    FONT-FAMILY: Arial, serif;
+    BACKGROUND-COLOR: #488bbd
+
+}
+
+/******************************************************
+	MITTLERE SPALTE
+*******************************************************/
+
+div.mittlere_spalte {
+
+    /*font-size: 0.8em;*/
+    padding: 0 0 10px;
+    margin-left: 20px;
+    float: left;
+    width: 530px;
+    font-family: Arial, serif;
+    font-weight: normal;
+    line-height: 1.33em;
+    margin-top: 32px;
+
+}
+
+/******************************************************
+	FUSSZEILE
+*******************************************************/
+
+div.fusszeile img {
+
+    background-color: transparent;
+    border: 0;
+
+}
+
+/* Das "X" der Infobox in der Fusszeile */
+#close a {
+    background-color: #488bbd;
+
+    color: #be1e3c;
+    font-family: Arial, serif;
+    width: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    text-decoration: underline;
+    border: 1px solid #ffffff;
+
+    text-align: center;
+    font-size: 14px;
+
+}
+
+/* Die kleine Infobox in der Fusszeile */
+#popup {
+    color: #000000;
+    background-color: #dddddd;
+    width: 220px;
+    position: relative;
+
+    top: 5px;
+    left: 0;
+    border: 2px solid #d4d0c8;
+    display: block
+}
+
+/* ================================================================================================================ */
+/* Tabellen
+/* ================================================================================================================ */
+
+th {
+    background: #D3D3D3;
+    color: black;
+    font-size: 1em;
+    font-family: Arial, serif;
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+td {
+
+    font-size: 1em;
+    font-family: Arial, serif;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+
+.kopf {
+
+    line-height: 0.01em;
+    vertical-align: top;
+    font-size: 1em;
+    margin: 0;
+}
+
+/* ================================================================================================================ */
+/* Schriftformatierung
+/* ================================================================================================================ */
+
+h1 {
+    font-size: 14px;
+    font-family: Arial, serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: #be1e3c;
+    line-height: 1.33em;
+    background-color: white;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 14px;
+    font-family: Aria l, serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    line-height: 1.33em;
+    background-color: white;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 13px;
+    font-family: Arial, serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: #be1e3c;
+    line-height: 1.33em;
+    background-color: white;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    font-size: 13px;
+    font-family: Arial, serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    line-height: 1.33em;
+    background-color: white;
+    margin-bottom: 0.5em;
+}
+
+.haengend {
+    text-indent: -1.5em;
+    margin-left: 1.5em;
+}
+
+.invers {
+    background-color: #ff9900;
+    color: white;
+}
+
+p, dd, li {
+    font-family: Aria l, serif;
+    font-size: 13px;
+    line-height: 1.33em;
+    color: #000000;
+    margin-top: 0;
+}
+
+pre {
+    font-size: 12px;
+}
+
+blockquote, q {
+    font-style: italic;
+    font-size: 1em;
+    line-height: 1.33em;
+    margin-bottom: 1.3em;
+}
+
+blockquote {
+    margin-left: 5em;
+    background-color: #fafafa;
+}
+
+cite {
+    font-size: 1em;
+    background-color: #fff
+}
+
+code {
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #fafafa;
+}
+
+strong {
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 1.33em;
+}
+
+/*	2005-01-26me: aus strong herausgeschnitten +  zu eigener Klasse gemacht, weil Eonpro3 alle <b> zu <strong> wandelt */
+.rot {
+    background-color: #cc3333;
+    color: white;
+}
+
+/* fuer den Fall geordnete Aufz innerh einer ungeordneten: */
+ul ol li {
+    list-style: decimal none;
+}
+
+dt {
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000000;
+    background-color: transparent;
+    line-height: 1.2em;
+    margin-bottom: 0.2em;
+}
+
+dd {
+    margin-bottom: 1.2em;
+}
+
+.geisterschrift {
+    color: silver;
+}
+
+/* http://www.w3.org/TR/REC-CSS2/generate.html#quotes
+Specify pairs of quotes for two levels in two languages */
+
+q:lang(de) {
+    quotes: "»" "«" ">" "<";
+}
+
+q:lang(en) {
+    quotes: "»" "«" ">" "<";
+}
+
+/* Insert quotes before and after Q element content */
+q:before {
+    content: open-quote;
+}
+
+q:after {
+    content: close-quote;
+}
+
+li {
+    font-family: Arial, serif;
+    margin-bottom: .5em;
+}
+
+/*ul li {
+    list-style: square url('/app/icons/tubsdesign/quadrat.jpg');
+}*/
+
+.bu, .fusszeile {
+    font-size: 0.9em;
+    font-family: Arial, serif;
+    text-decoration: none;
+    font-weight: normal;
+    color: #666666;
+    line-height: 1.7em;
+}
+
+/*	Bildunterschrift ausserdem rechtsbuendig ausrichten  2004-09-14me */
+.bu {
+    text-align: right;
+}
+
+.linksbuendig {
+    text-align: left;
+}
+
+.rechtsbuendig {
+    text-align: right;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.center {
+    text-align: center;
+}
+
+/* ================================================================================================================ */
+/* Links
+/* ================================================================================================================ */
+
+a {
+    text-decoration: underline;
+}
+
+a:link {
+    color: #be1e3c;
+}
+
+a:visited {
+    color: #be1e3c;
+}
+
+a:hover {
+    color: #ffffff;
+    background-color: #be1e3c;
+    text-decoration: none;
+}
+
+a:active {
+    color: #ffffff;
+    background-color: #488bbd;
+    text-decoration: none;
+}
+
+.a2, div.rechte_spalte a {
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.a2:link, div.rechte_spalte a:link {
+    color: #000000;
+}
+
+.a2:visited, div.rechte_spalte a:visited {
+
+    color: #000000;
+}
+
+.a2:hover, div.rechte_spalte a:hover {
+    color: #488bbd;
+    background-color: transparent;
+}
+
+.a2:active, div.rechte_spalte a:active {
+    color: #488bbd;
+    background-color: transparent;
+}
+
+.a3 {
+
+    font-weight: normal;
+
+}
+
+.a3:link {
+
+    text-decoration: none;
+    color: #666666;
+}
+
+.a3:visited {
+    text-decoration: none;
+    color: #666666;
+}
+
+.a3:hover {
+
+    text-decoration: none;
+
+    color: #488bbd;
+    background-color: transparent;
+}
+
+.a3:active {
+    text-decoration: none;
+    color: #488bbd;
+    background-color: transparent;
+}
+
+.schwarz:link {
+    color: #000000;
+}
+
+.schwarz:visited {
+    color: #000000;
+}
+
+.schwarz:hover {
+    color: #ffffff;
+    background-color: #488bbd;
+    text-decoration: none;
+}
+
+.schwarz:active {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* ================================================================================================================ */
+/* Sonstiges */
+/* ================================================================================================================ */
+
+.noborder {
+    border: 0 none;
+}
+
+img {
+    border: 0;
+}
+
+.left {
+    float: left;
+    margin-right: 1em;
+}
+
+.right {
+    float: right;
+    margin-left: 1em;
+}
+
+hr {
+    color: #DCDCDC;
+}
+
+/*=================================================================== */
+/* Druckversion                                                       */
+/* ================================================================== */
+
+@media print {
+    #tu_header {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    div#seitenkopf {
+        display: none;
+    }
+
+    div#navigation {
+        display: none;
+    }
+
+    div#rechte_spalte {
+        display: none;
+    }
+
+    div#tu_header {
+        display: none;
+    }
+
+    #tu_titelzeile {
+        display: none;
+    }
+
+    #pagetitle {
+        padding-left: 20px;
+    }
+
+    .screen {
+        display: none;
+    }
+
+    #td_navigation {
+        width: 0
+    }
+
+    #td_rechte_spalte {
+        width: 0
+    }
+
+    body {
+        color: black;
+        background: #ffffff;
+        margin: 0;
+    }
+
+    th {
+        background: #D3D3D3;
+        color: black;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    td {
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: normal;
+        vertical-align: top;
+    }
+
+    .headline, h1 {
+        font-size: 22pt;
+    }
+
+    h2, h3, h4, h5, h6 {
+        font-size: 18pt;
+        line-height: 18pt;
+        margin-bottom: 2pt;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Bauer Bodoni", Bodoni, serif;
+        text-decoration: none;
+        font-weight: bold;
+        color: #003366;
+        background-color: white;
+    }
+
+    p, dt, dd, li {
+        font-size: 12pt;
+        font-family: "ITC Weidemann Book", "Biblica", serif;
+        line-height: 18pt;
+        color: #000000;
+        background-color: white;
+    }
+
+    blockquote, q {
+        font-style: italic;
+        font-size: small;
+        line-height: 16px;
+        margin-bottom: 16px;
+    }
+
+    blockquote {
+        margin-left: 80px;
+        background-color: #fafafa;
+    }
+
+    cite {
+        font-size: small;
+        background-color: #fff;
+    }
+
+    code {
+        font-weight: bold;
+        background-color: #fafafa;
+    }
+
+    strong {
+        font-size: 12px;
+        font-family: "ITC Weidemann Book", "Biblica", serif;
+        font-weight: bold;
+        font-style: normal;
+        line-height: 16px;
+    }
+
+    .rot {
+        color: #cc3333;
+        background-color: white;
+        font-family: "ITC Weidemann Book", "Biblica", serif;
+    }
+
+    hr {
+        color: silver;
+        background-color: silver;
+        height: 1px;
+    }
+
+    a {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .bu, .fusszeile {
+        font-size: 10px;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        font-weight: normal;
+        color: #666666;
+        line-height: 14px;
+    }
+
+    .bu {
+        text-align: right;
+    }
+
+    .geisterschrift {
+        color: silver;
+    }
+
+    img {
+        border: 0;
+    }
+
+    .left {
+        float: left;
+        margin-right: 10px;
+    }
+
+    .right {
+        float: right;
+        margin-left: 10px;
+    }
+
+    ul li {
+        list-style-type: disc;
+        color: #003366;
+    }
+
+    ul ol li {
+        list-style: decimal none;
+    }
+
+    dt {
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #000000;
+        background-color: transparent;
+        line-height: 16px;
+        margin-bottom: 2px;
+        page-break-after: avoid;
+    }
+
+    dd {
+        margin-bottom: 16px;
+    }
+
+    q:lang(de) {
+        quotes: "&bdquo;" "&ldquo;" "&sbquo;" "&lsquo;";
+    }
+
+    q:lang(en) {
+        quotes: "&ldquo;" "&rdquo;" "&lsquo;" "&rsquo;";
+    }
+
+    q:before {
+        content: open-quote;
+    }
+
+    q:after {
+        content: close-quote;
+    }
+}
+
+
+
+
+
