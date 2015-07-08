@@ -43,7 +43,7 @@ function save($input) {
     $group = '';
 
     if ($input['cs'] === true && $input['math'] === true) {
-        $group = 'afternoon';
+        $group = 'morning';
         //echo 'both';
     } else if ($input['math'] === true) {
         $stmtCount = $db->prepare('SELECT count(*) FROM vorkurs WHERE math = 1 AND mathgroup = :group');
@@ -57,9 +57,9 @@ function save($input) {
         $result = $stmtCount->execute()->fetchArray();
         $countMorning = $result[0];
 
-        $group = 'morning';
-        if ($countMorning > $countAfternoon + 10) {
-            $group = 'afternoon';
+        $group = 'afternoon';
+        if ($countAfternoon > $countMorning + 10) {
+            $group = 'morning';
         }
     }
 
@@ -85,11 +85,11 @@ function save($input) {
         $mail->FromName = 'Stephan Mielke';
         $mail->addAddress($input['email']);     // Add a recipient
 
-        if ($group === 'afternoon') {
+        if ($group === 'morning') {
             //echo 'after';
             $mail->addAttachment('Brief-NM-2015.pdf');
         }
-        if ($group === 'morning') {
+        if ($group === 'afternoon') {
             //echo 'morning';
             $mail->addAttachment('Brief-VM-2015.pdf');
         }
