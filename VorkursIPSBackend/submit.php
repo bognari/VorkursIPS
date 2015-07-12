@@ -65,8 +65,8 @@ function save($input) {
 
     $stmt = $db->prepare('INSERT INTO vorkurs VALUES (:email, :lastname, :firstname, :math, :cs, :mathgroup, :laptop, :proglang, :os,
 :school)');
-    $stmt->bindValue(':lastname', $input['firstname'], SQLITE3_TEXT);
-    $stmt->bindValue(':firstname', $input['lastname'], SQLITE3_TEXT);
+    $stmt->bindValue(':lastname', $input['lastname'], SQLITE3_TEXT);
+    $stmt->bindValue(':firstname', $input['firstname'], SQLITE3_TEXT);
     $stmt->bindValue(':email', $input['email'], SQLITE3_TEXT);
     $stmt->bindValue(':math', $input['math'] === true ? 1 : 0, SQLITE3_INTEGER);
     $stmt->bindValue(':cs', $input['cs'] === true ? 1 : 0, SQLITE3_INTEGER);
