@@ -6,6 +6,7 @@
  * Time: 16:45
  */
 
+error_reporting(0);
 require_once 'vendor/autoload.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
@@ -44,7 +45,6 @@ function save($input) {
 
     if ($input['cs'] === true && $input['math'] === true) {
         $group = 'morning';
-        //echo 'both';
     } else if ($input['math'] === true) {
         $stmtCount = $db->prepare('SELECT count(*) FROM vorkurs WHERE math = 1 AND mathgroup = :group');
 
@@ -79,38 +79,45 @@ function save($input) {
 
     $ret = $stmt->execute();
 
+    $data = array();
+
     if ($ret !== false) {
         $mail = new PHPMailer();
+        $mail->CharSet = 'utf-8';
+        $mail->setLanguage ('de');
+        //$mail->isSMTP();
         $mail->From = 's.mielke@tu-bs.de';
         $mail->FromName = 'Stephan Mielke';
         $mail->addAddress($input['email']);     // Add a recipient
 
         if ($group === 'morning') {
-            //echo 'after';
-            $mail->addAttachment('Brief-NM-2015.pdf');
+            $mail->addAttachment('pdf/Brief-NM-2015.pdf');
         }
         if ($group === 'afternoon') {
-            //echo 'morning';
-            $mail->addAttachment('Brief-VM-2015.pdf');
+            $mail->addAttachment('pdf/Brief-VM-2015.pdf');
         }
         if ($input['cs'] === true) {
-            //echo 'cs';
-            $mail->addAttachment('Einladung-VK-Info.pdf');
+            $mail->addAttachment('pdf/Einladung-VK-Info.pdf');
         }
 
-        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->isHTML(true);
 
         $mail->Subject = 'Bestätigung der Anmeldung für den Vorkurs';
         $mail->Body    = 'Mit dieser Email erhalten Sie im Anhang alle wichtigen Informationen zum Vorkurs.';
         $mail->AltBody = 'Mit dieser Email erhalten Sie im Anhang alle wichtigen Informationen zum Vorkurs.';
 
+        $data['cs'] =  $input['cs'];
+        $data['math'] = $input['math'];
+        $data['group'] = $group;
+
         if(!$mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-            echo 'Message has been sent';
+            $data['mailError'] = $mail->ErrorInfo;
         }
+    } else {
+        $data['dbError'] = $db->lastErrorCode();
     }
+
+    echo json_encode($data);
 
     return $ret;
 }
