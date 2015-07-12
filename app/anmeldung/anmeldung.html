@@ -1,131 +1,133 @@
 <h3>Anmeldung den Informatik und Mathematik Vorkurs im Wintersemester {{ semester }}</h3>
 <div class="row">
     <div class="col-sm-11">
-        <form role="form"
-              ng-submit="submit()"
-              ng-fab-form-options="customFormOptions">
-            <div class="form-group">
-                <label class="control-label">Name:
-                    <input type="text"
-                           class="form-control"
-                           placeholder="Name"
-                           ng-minlength="1"
-                           ng-model="formData.lastname"
-                           required>
-                </label>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Vorname:
-                    <input type="text"
-                           class="form-control"
-                           placeholder="Vorname"
-                           ng-minlength="1"
-                           ng-model="formData.firstname"
-                           required>
-                </label>
-            </div>
-            <div class="form-group">
-                <label class="control-label">E-Mail:
-                    <input type="email"
-                           class="form-control"
-                           placeholder="E-Mail"
-                           ng-model="formData.email"
-                           required>
-                </label>
-            </div>
-            <div class="form-group">
-                <label class="control-label">E-Mail (wiederholen):
-                    <input type="email"
-                           class="form-control"
-                           placeholder="E-Mail"
-                           ng-model="input.emailRepeat"
-                           ng-fab-match="formData.email"
-                           required>
-                </label>
-            </div>
-            <!--div class="form-group">
-                <label class="control-label">Matrikelnummer:
-                    <input type="text"
-                           class="form-control"
-                           placeholder="Matrikelnummer"
-                           ng-pattern="/^[1-9][0-9]{6}$/i"
-                           ng-maxlength="7"
-                           ng-minlength="7"
-                           ng-model="formData.matnr"
-                           required>
-                </label>
-            </div-->
-            <div class="form-group">
-                <label>Auswahl des Vorkurses:
-                    <select ng-model="input.course"
-                            class="form-control"
-                            ng-options="course.value as course.name for course in courses"
-                            ng-change="check()"
-                            required>
-                    </select>
-                </label>
-            </div>
-            <!--div class="form-group" ng-if="formData.math">
-                <label>Gruppenauswahl für den Mathematik Vorkurs:
-                    <select ng-model="formData.group"
-                            class="form-control"
-                            ng-options="mathgroup.value as mathgroup.name for mathgroup in mathgroups"
-                            ng-disabled="formData.math && formData.cs"
-                            required>
-                    </select>
-                </label>
+        <div class="animate-switch-container"
+             ng-switch on="status">
+            <div class="animate-switch" ng-switch-when="success">
+                <h2>Sie wurden erfolgreich eingetragen.</h2>
 
-                <div class="alert" ng-if="formData.math && formData.cs">
-                    Wegen Überschneidungen zwischen den beiden Vorkursen kann nur die Gruppe &quot;{{ bothCourses.name
-                    }}&quot; angeboten werden.
+                <div>An die von Ihnen angegebene E-Mail-Adresse wurden weitere Information versand. Sollten Sie keine
+                    E-Mail erhalten haben, sehen Sie bitte in Ihrem Spam-Ordner nach.
                 </div>
-            </div-->
-
-            <div class="form-group" ng-if="formData.cs">
-                <label class="control-label">Besitzen Sie einen eigenen Laptop und können Sie diesen in der Uni
-                    benutzen?:
-                </label>
-
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"
-                               ng-model="formData.laptop">
-                        Ja
-                    </label>
+                <div ng-if="response.hasOwnProperty('mailError')">Leider ist ein Fehler beim Versenden der
+                    Bestätigungsmail aufgetreten. Bitte speichern Sie sich die im Folgenden verlinkten PDF(s).
                 </div>
-                <div class="form-group">
-                    <label class="control-label">Welche Programmiersprachen sind Ihnen vertraut?:
+                <div ng-if="!response.hasOwnProperty('mailError')">Die nachfolgenden PDF(s) wurden an Sie versand.
+                </div>
+                <div ng-if="response.cs">
+                    <a ng-href='{{ pdf }}'>Einladung zum Vorkurs Informatik</a>
+                </div>
+                <div ng-if="response.group == 'morning'">
+                    <a ng-href='../vorkursIPSBackend/pdf/Brief-NM-2015.pdf'>Informationen zum Vorkurs der Mathematik</a>
+                </div>
+                <div ng-if="response.group == 'afternoon'">
+                    <a ng-href='../vorkursIPSBackend/pdf/Brief-VM-2015.pdf'>Informationen zum Vorkurs der Mathematik</a>
+                </div>
+            </div>
+            <div class="animate-switch" ng-switch-when="error">
+                <h2>Bei der Anmeldung zum Vorkurs ist ein Fehler aufgetreten</h2>
+                <div>Bitte prüfen Sie, ob Sie sich schon für den Vorkurs eingetragen haben, da nur eine Anmeldung pro E-Mail-Adresse möglich ist.</div>
+               <div>Sollen Sie sich noch nicht Angemeldet haben, so senden Sie bitte eine E-Mail an s.mielke(at)tu-bs.de, um sich manuell für einen Vorkurs anzumelden.</div>
+            </div>
+            <div class="animate-switch" ng-switch-default>
+                <form role="form"
+                      ng-submit="submit()"
+                      ng-fab-form-options="customFormOptions">
+                    <div class="form-group">
+                        <label class="control-label">Name:
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Name"
+                                   ng-minlength="1"
+                                   ng-model="formData.lastname"
+                                   required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Vorname:
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Vorname"
+                                   ng-minlength="1"
+                                   ng-model="formData.firstname"
+                                   required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">E-Mail:
+                            <input type="email"
+                                   class="form-control"
+                                   placeholder="E-Mail"
+                                   ng-model="formData.email"
+                                   required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">E-Mail (wiederholen):
+                            <input type="email"
+                                   class="form-control"
+                                   placeholder="E-Mail"
+                                   ng-model="input.emailRepeat"
+                                   ng-fab-match="formData.email"
+                                   required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>Auswahl des Vorkurses:
+                            <select ng-model="input.course"
+                                    class="form-control"
+                                    ng-options="course.value as course.name for course in courses"
+                                    ng-change="check()"
+                                    required>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-group" ng-if="formData.cs">
+                        <label class="control-label">Besitzen Sie einen eigenen Laptop und können Sie diesen in der Uni
+                            benutzen?:
+                        </label>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                       ng-model="formData.laptop">
+                                Ja
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Welche Programmiersprachen sind Ihnen vertraut?:
                 <textarea type="text"
                           class="form-control"
                           ng-model="formData.proglang" title="Programmiersprachen"></textarea>
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Mit welchen Betriebssystemen können Sie umgehen?:
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Mit welchen Betriebssystemen können Sie umgehen?:
                 <textarea type="text"
                           class="form-control"
                           ng-model="formData.os" title="Betriebssysteme"></textarea>
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Was wurde Ihnen in der Schuhle zum Thema Informatik beigebracht bzw.
-                        welche Vorkentnisse besitzen Sie?:
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Was wurde Ihnen in der Schuhle zum Thema Informatik beigebracht
+                                bzw.
+                                welche Vorkentnisse besitzen Sie?:
                 <textarea type="text"
                           class="form-control"
                           ng-model="formData.school" title="Vorkentnisse"></textarea>
-                    </label>
-                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit"
+                            class="btn btn-primary">Anmelden
+                    </button>
+                    <button type="button"
+                            ng-fab-reset-form-on
+                            class="btn btn-warning">Formular resetten
+                    </button>
+                </form>
             </div>
-            <button type="submit"
-                    class="btn btn-primary">Anmelden
-            </button>
-            <button type="button"
-                    ng-fab-reset-form-on
-                    class="btn btn-warning">Formular resetten
-            </button>
-        </form>
-        <!--h1>Diese personenbezogenen Daten werden für die Registrierung zum Vorkurs erhoben.</h1>
-        <pre>{{ formData |json }}</pre-->
+        </div>
     </div>
 </div>
 
